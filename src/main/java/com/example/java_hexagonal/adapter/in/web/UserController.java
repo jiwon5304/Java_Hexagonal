@@ -1,5 +1,6 @@
 package com.example.java_hexagonal.adapter.in.web;
 
+import com.example.java_hexagonal.adapter.out.persistence.UserEntity;
 import com.example.java_hexagonal.application.port.in.UserUseCase;
 import com.example.java_hexagonal.domain.User;
 import io.tej.SwaggerCodgen.api.UsersApi;
