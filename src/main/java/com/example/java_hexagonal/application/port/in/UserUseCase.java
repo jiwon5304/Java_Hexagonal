@@ -11,4 +11,6 @@ public interface UserUseCase {
      User createUser(UserRequest userRequest);
 
      List<User> getUsers();
+
+     User getUserById(Long id);
 }
