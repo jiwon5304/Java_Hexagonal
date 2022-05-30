@@ -9,6 +9,7 @@ import io.tej.SwaggerCodgen.model.UserRequest;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.PushBuilder;
+import java.security.PublicKey;
 import java.util.List;
 
 @Service
@@ -42,6 +43,11 @@ public class UserService implements UserUseCase {
     public User updateUser(Long id, UserRequest userRequest) {
         User user = User.updateof(id,userRequest.getName(), userRequest.getPassword());
         return updateUserPort.update(user);
+    }
+
+    @Override
+    public void deleteUser(Long id) {
+        updateUserPort.delete(id);
     }
 
 }

@@ -3,10 +3,8 @@ package com.example.java_hexagonal.adapter.out.persistence;
 import com.example.java_hexagonal.application.port.out.LoadUserPort;
 import com.example.java_hexagonal.application.port.out.UpdateUserPort;
 import com.example.java_hexagonal.domain.User;
-import io.tej.SwaggerCodgen.model.UserRequest;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,6 +40,11 @@ public class UserPersistenceAdapter implements LoadUserPort, UpdateUserPort {
     @Override
     public User update(User user) {
         return mapper.toDomain(userRepository.save(mapper.toEntity(user)));
+    }
+
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteById(id);
     }
 
 }

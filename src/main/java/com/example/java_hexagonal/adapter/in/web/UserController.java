@@ -1,18 +1,17 @@
 package com.example.java_hexagonal.adapter.in.web;
 
-import com.example.java_hexagonal.adapter.out.persistence.UserEntity;
 import com.example.java_hexagonal.application.port.in.UserUseCase;
 import com.example.java_hexagonal.domain.User;
 import io.tej.SwaggerCodgen.api.UsersApi;
 import io.tej.SwaggerCodgen.model.UserRequest;
 import io.tej.SwaggerCodgen.model.UserResponse;
-import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @RestController
 public class UserController implements UsersApi {
@@ -56,5 +55,12 @@ public class UserController implements UsersApi {
     public ResponseEntity<UserResponse> updateUser(Long id, UserRequest userRequest) {
         User user = userUseCase.updateUser(id, userRequest);
         return ResponseEntity.ok(toResponse(user));
+    }
+
+    // 회원 삭제
+    @Override
+    public ResponseEntity<Void> deleteUser(Long id) {
+        userUseCase.deleteUser(id);
+        return new ResponseEntity<Void> (HttpStatus.OK);
     }
 }
