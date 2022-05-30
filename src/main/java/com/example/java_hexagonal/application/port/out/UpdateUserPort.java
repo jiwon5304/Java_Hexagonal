@@ -6,4 +6,6 @@ public interface UpdateUserPort {
     User save(User user);
 
     User findById(Long id);
+
+    User update(User user);
 }

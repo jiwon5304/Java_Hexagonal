@@ -24,7 +24,7 @@ public class UserService implements UserUseCase {
 
     @Override
     public User createUser(UserRequest userRequest) {
-        User user = User.of(userRequest.getName(), userRequest.getPassword());
+        User user = User.createof(userRequest.getName(), userRequest.getPassword());
         return updateUserPort.save(user);
     }
 
@@ -36,6 +36,12 @@ public class UserService implements UserUseCase {
     @Override
     public User getUserById(Long id) {
         return updateUserPort.findById(id);
+    }
+
+    @Override
+    public User updateUser(Long id, UserRequest userRequest) {
+        User user = User.updateof(id,userRequest.getName(), userRequest.getPassword());
+        return updateUserPort.update(user);
     }
 
 }

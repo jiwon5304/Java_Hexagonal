@@ -46,8 +46,15 @@ public class UserController implements UsersApi {
 
     // id로 회원 조회
     @Override
-    public ResponseEntity<UserResponse> getUserById(Long id) {
+    public ResponseEntity<UserResponse> getUserById (Long id) {
         User user = userUseCase.getUserById(id);
+        return ResponseEntity.ok(toResponse(user));
+    }
+
+    // 회원 수정
+    @Override
+    public ResponseEntity<UserResponse> updateUser(Long id, UserRequest userRequest) {
+        User user = userUseCase.updateUser(id, userRequest);
         return ResponseEntity.ok(toResponse(user));
     }
 }
