@@ -34,4 +34,9 @@ public class UserPersistenceAdapter implements LoadUserPort, UpdateUserPort {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public User findById(Long id) {
+        return mapper.toDomain(userRepository.getById(id));
+    }
+
 }

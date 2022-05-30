@@ -43,4 +43,11 @@ public class UserController implements UsersApi {
                                              .collect(Collectors.toList());
         return ResponseEntity.ok(users);
     }
+
+    // id로 회원 조회
+    @Override
+    public ResponseEntity<UserResponse> getUserById(Long id) {
+        User user = userUseCase.getUserById(id);
+        return ResponseEntity.ok(toResponse(user));
+    }
 }

@@ -8,6 +8,7 @@ import com.example.java_hexagonal.domain.User;
 import io.tej.SwaggerCodgen.model.UserRequest;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.PushBuilder;
 import java.util.List;
 
 @Service
@@ -30,6 +31,11 @@ public class UserService implements UserUseCase {
     @Override
     public List<User> getUsers() {
         return loadUserPort.loadAll();
+    }
+
+    @Override
+    public User getUserById(Long id) {
+        return updateUserPort.findById(id);
     }
 
 }

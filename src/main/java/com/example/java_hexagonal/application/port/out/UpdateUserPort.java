@@ -4,4 +4,6 @@ import com.example.java_hexagonal.domain.User;
 
 public interface UpdateUserPort {
     User save(User user);
+
+    User findById(Long id);
 }
