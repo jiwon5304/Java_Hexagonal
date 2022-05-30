@@ -18,11 +18,22 @@ public class User {
         this.password = password;
     }
 
+    public User(Long id, String name, String password) {
+        this.id = id;
+        this.name = name;
+        this.password = password;
+    }
+
     public User() {
     }
 
-    public static User of(String name, String password) {
+    public static User createof(String name, String password) {
         return new User(name, password);
     }
+
+    public static User updateof(Long id,String name, String password) {
+        return new User(id, name, password);
+    }
+
 
 }

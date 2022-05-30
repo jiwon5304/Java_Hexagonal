@@ -13,4 +13,6 @@ public interface UserUseCase {
      List<User> getUsers();
 
      User getUserById(Long id);
+
+     User updateUser(Long id, UserRequest userRequest);
 }
