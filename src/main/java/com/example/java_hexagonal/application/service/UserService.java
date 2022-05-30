@@ -8,6 +8,8 @@ import com.example.java_hexagonal.domain.User;
 import io.tej.SwaggerCodgen.model.UserRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService implements UserUseCase {
 
@@ -23,6 +25,11 @@ public class UserService implements UserUseCase {
     public User createUser(UserRequest userRequest) {
         User user = User.of(userRequest.getName(), userRequest.getPassword());
         return updateUserPort.save(user);
+    }
+
+    @Override
+    public List<User> getUsers() {
+        return loadUserPort.loadAll();
     }
 
 }

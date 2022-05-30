@@ -11,6 +11,9 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 public class UserController implements UsersApi {
 
@@ -30,5 +33,14 @@ public class UserController implements UsersApi {
     public ResponseEntity<UserResponse> createUser(UserRequest userRequest) {
         User user = userUseCase.createUser(userRequest);
         return ResponseEntity.ok(toResponse(user));
+    }
+
+    // 회원 조회
+    @Override
+    public ResponseEntity<List<UserResponse>> getUsers() {
+       List<UserResponse> users = userUseCase.getUsers().stream()
+                                             .map(this::toResponse)
+                                             .collect(Collectors.toList());
+        return ResponseEntity.ok(users);
     }
 }

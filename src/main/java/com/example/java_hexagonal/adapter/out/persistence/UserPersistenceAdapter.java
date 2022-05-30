@@ -7,10 +7,14 @@ import io.tej.SwaggerCodgen.model.UserRequest;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Repository
 public class UserPersistenceAdapter implements LoadUserPort, UpdateUserPort {
 
     private final UserRepository userRepository;
+
     private final UserEntityMapper mapper;
 
     public UserPersistenceAdapter(UserRepository userRepository) {
@@ -22,4 +26,12 @@ public class UserPersistenceAdapter implements LoadUserPort, UpdateUserPort {
     public User save(User user) {
         return mapper.toDomain(userRepository.save(mapper.toEntity(user)));
     }
+
+    @Override
+    public List<User> loadAll() {
+        return userRepository.findAll().stream()
+                .map(mapper::toDomain)
+                .collect(Collectors.toList());
+    }
+
 }
