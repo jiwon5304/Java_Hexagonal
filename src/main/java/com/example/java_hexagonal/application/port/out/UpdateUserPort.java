@@ -8,4 +8,6 @@ public interface UpdateUserPort {
     User findById(Long id);
 
     User update(User user);
+
+    void delete(Long id);
 }

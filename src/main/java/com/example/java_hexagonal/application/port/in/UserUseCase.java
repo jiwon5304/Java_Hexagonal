@@ -15,4 +15,6 @@ public interface UserUseCase {
      User getUserById(Long id);
 
      User updateUser(Long id, UserRequest userRequest);
+
+     void deleteUser(Long id);
 }
