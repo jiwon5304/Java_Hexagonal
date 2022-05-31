@@ -2,9 +2,9 @@ package com.example.java_hexagonal.adapter.in.web;
 
 import com.example.java_hexagonal.application.port.in.UserUseCase;
 import com.example.java_hexagonal.domain.User;
-import io.tej.SwaggerCodgen.api.UsersApi;
-import io.tej.SwaggerCodgen.model.UserRequest;
-import io.tej.SwaggerCodgen.model.UserResponse;
+import com.ktown4u.gms.company.adapter.in.web.UserRequest;
+import com.ktown4u.gms.company.adapter.in.web.UserResponse;
+import com.ktown4u.gms.company.adapter.in.web.UsersApi;
 import org.mapstruct.factory.Mappers;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

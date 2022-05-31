@@ -4,7 +4,7 @@ import com.example.java_hexagonal.application.port.in.UserUseCase;
 import com.example.java_hexagonal.application.port.out.LoadUserPort;
 import com.example.java_hexagonal.application.port.out.UpdateUserPort;
 import com.example.java_hexagonal.domain.User;
-import io.tej.SwaggerCodgen.model.UserRequest;
+import com.ktown4u.gms.company.adapter.in.web.UserRequest;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
