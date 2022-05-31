@@ -9,5 +9,4 @@ public class JavaHexagonalApplication {
     public static void main(String[] args) {
         SpringApplication.run(JavaHexagonalApplication.class, args);
     }
-
 }

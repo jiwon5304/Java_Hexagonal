@@ -3,8 +3,6 @@ package com.example.java_hexagonal.domain;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-
 @Getter
 @Setter
 public class User {
@@ -34,6 +32,4 @@ public class User {
     public static User updateof(Long id,String name, String password) {
         return new User(id, name, password);
     }
-
-
 }
