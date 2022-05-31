@@ -2,7 +2,6 @@ package com.example.java_hexagonal.adapter.out.persistence;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Entity
